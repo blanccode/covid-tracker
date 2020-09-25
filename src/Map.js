@@ -3,15 +3,15 @@ import { Map as LeafletMap, TileLayer } from "react-leaflet";
 import "./Map.css";
 import { showMapData } from "./util";
 
-function Map({countries,casesType,center, zoom}) {
+function Map({ countries, casesType,center, zoom }) {
   return (
-    <div className="map">
+    <div className="map"> 
       <LeafletMap center= {center} zoom={zoom}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {showMapData(countries,casesType)}
+        {showMapData(countries ,casesType)}
       </LeafletMap>
     </div>
   );

@@ -68,35 +68,36 @@ const parseChartData = (data, casesType) => {
 }
 
 
-function LineGraph() {
+function LineGraph({casesType}) {
     const [data, setData] = useState({})
 
         useEffect(() => {
             async function fetchData() {
             const response = await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
             const data = await response.json()
-                console.log(data)
 
-            let chartData = parseChartData(data,"cases")
+            let chartData = parseChartData(data,casesType)
                 setData(chartData)
             }
-        fetchData()
-        }, [])
+            fetchData()
+        }, [casesType])
 
 
     return (
       <div>
         {data?.length > 0 && (
-          <Line
-            data={{
-              datasets: [
-                {
-                  backgroundColor: "rgba(204, 16, 52, 0.5)",
-                  borderColor: "#CC1034",
-                  data: data,
-                },
-              ],
-            }}
+          <Line 
+            data={ 
+                    { 
+                datasets: [
+                    {
+                    backgroundColor: casesType === "recovered" ? "rgb(125, 215, 29, .65)" : "rgba(204, 16, 52, 0.5)",
+                    borderColor: casesType === "recovered" ? "#7dd71d" : "#CC1034",
+                    data: data,
+                    },
+                ],
+                }
+            } 
             options={options}
           />
         )}

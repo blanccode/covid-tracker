@@ -25,7 +25,7 @@ body {
 }
 
 .app__header > h1 {
-  /* color: #fc3c3c; */
+  color: rgb(70, 70, 70);
   font-size: 2rem;
 }
 
@@ -51,8 +51,7 @@ body {
 }
 
 canvas.chartjs-render-monitor {
-  height: 200px !important;
-  width: 400px !important;
+  height: 300px !important;
 }
 
 
@@ -67,5 +66,34 @@ canvas.chartjs-render-monitor {
 @media (max-width: 990px) {
   .app {
     flex-direction: column;
+  }
+}
+@media (max-width: 462px) {
+  .app__header > h1 {
+    font-size: 1.5rem;
+  }
+  .app h2{
+    font-size: 1.3rem;
+  }
+  .map {
+    height: 450px;
+  }
+  .app__information{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  canvas.chartjs-render-monitor {
+  height: 300px !important;
+  margin-bottom: 1em;
+  }
+  
+  .chart-container h3 {
+    margin-bottom: 1em;
+  }
+  .table-container h3 {
+    margin-bottom: -.5em;
+  }
+  .MuiCardContent-root:last-child {
+    padding-bottom: 14px !important;
   }
 }
